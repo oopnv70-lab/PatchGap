@@ -74,9 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
         nvdClient.fetchCvesSince(deviceInfo.patchLevel, new NvdClient.Callback() {
             @Override
-            public void onSuccess(java.util.List<CveItem> cveList) {
+            public void onSuccess(java.util.List<CveItem> cveList, String sourceName) {
                 runOnUiThread(() -> {
                     setLoading(false);
+                    // 在统计卡片上显示数据来源
+                    tvPatchLevel.setText(deviceInfo.patchLevel + " (来源: " + sourceName + ")");
                     if (cveList == null || cveList.isEmpty()) {
                         tvEmpty.setVisibility(View.VISIBLE);
                         tvEmpty.setText(R.string.no_vulns);
