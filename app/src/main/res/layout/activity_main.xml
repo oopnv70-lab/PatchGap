@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?attr/colorSurface">
+
+    <!-- 设备信息卡片 -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备信息"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface" />
+
+            <TextView
+                android:id="@+id/tvDeviceInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:textColor="?attr/colorOnSurface"
+                android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 统计卡片 -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvVulnCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="未修补漏洞"
+                    android:textSize="12sp"
+                    android:textColor="?attr/colorOnSurface" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="48dp"
+                android:background="#E0E0E0" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvPatchLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="…"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="安全补丁级别"
+                    android:textSize="12sp"
+                    android:textColor="?attr/colorOnSurface" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="48dp"
+                android:background="#E0E0E0" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvDaysBehind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFD32F2F" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="落后天数"
+                    android:textSize="12sp"
+                    android:textColor="?attr/colorOnSurface" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 扫描按钮 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnScan"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="扫描漏洞"
+        android:textSize="16sp"
+        app:cornerRadius="12dp" />
+
+    <!-- 加载进度条 -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="12dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <!-- 漏洞列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVulns"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="点击「扫描漏洞」开始检测"
+        android:textSize="14sp"
+        android:textColor="#9E9E9E" />
+</LinearLayout>
