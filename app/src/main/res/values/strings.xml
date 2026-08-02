@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VulnScanner</string>
+    <string name="scan_button">扫描漏洞</string>
+    <string name="scanning">正在查询…</string>
+    <string name="patch_level_label">安全补丁级别</string>
+    <string name="vulns_found">发现 %d 个未修补漏洞</string>
+    <string name="days_behind">补丁落后 %d 天</string>
+    <string name="no_vulns">未发现已知漏洞</string>
+    <string name="error_network">网络请求失败，请检查连接</string>
+    <string name="error_parse">数据解析失败</string>
+</resources>
